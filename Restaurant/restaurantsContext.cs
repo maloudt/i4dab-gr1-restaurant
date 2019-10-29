@@ -18,7 +18,6 @@ namespace Restaurant
         public virtual DbSet<Dish> Dish { get; set; }
         public virtual DbSet<Guest> Guest { get; set; }
         public virtual DbSet<Restaurant> Restaurant { get; set; }
-        public virtual DbSet<Restaurants> Restaurants { get; set; }
         public virtual DbSet<Review> Review { get; set; }
         public virtual DbSet<TableRes> TableRes { get; set; }
         public virtual DbSet<Waiter> Waiter { get; set; }
@@ -101,21 +100,6 @@ namespace Restaurant
             {
                 entity.HasKey(e => e.AddressRes)
                     .HasName("PK__Restaura__5D92AE2BA9E4B256");
-
-                entity.Property(e => e.AddressRes)
-                    .HasColumnName("address_res")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.NameRes)
-                    .IsRequired()
-                    .HasColumnName("name_res")
-                    .HasMaxLength(255);
-            });
-
-            modelBuilder.Entity<Restaurants>(entity =>
-            {
-                entity.HasKey(e => e.AddressRes)
-                    .HasName("PK__Restaura__5D92AE2B87258469");
 
                 entity.Property(e => e.AddressRes)
                     .HasColumnName("address_res")
