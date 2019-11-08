@@ -29,5 +29,6 @@ namespace Restaurant
                 Console.WriteLine($"Average rating: {avgRating}");
             }
         }
+
     }
 }

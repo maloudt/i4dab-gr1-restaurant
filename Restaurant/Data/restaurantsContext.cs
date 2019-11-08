@@ -109,6 +109,10 @@ namespace Restaurant
                     .IsRequired()
                     .HasColumnName("name_res")
                     .HasMaxLength(255);
+
+                entity.Property(e => e.Type)
+                    .IsRequired()
+                    .HasMaxLength(255);
             });
 
             modelBuilder.Entity<Review>(entity =>

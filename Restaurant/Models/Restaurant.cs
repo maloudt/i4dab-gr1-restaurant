@@ -16,6 +16,7 @@ namespace Restaurant
 
         public string AddressRes { get; set; }
         public string NameRes { get; set; }
+        public string Type { get; set; }
 
         public virtual ICollection<Dish> Dish { get; set; }
         public virtual ICollection<Guest> Guest { get; set; }
