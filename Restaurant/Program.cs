@@ -6,7 +6,9 @@ namespace Restaurant
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("DAB on the haters!");
+            restaurantsContext database = new restaurantsContext();
+            Views.ViewMenu(database, "Kaspars");
+            Views.ViewRestaurantsByType(database, "Café");
         }
     }
 }

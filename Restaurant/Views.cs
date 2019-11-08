@@ -8,9 +8,9 @@ namespace Restaurant
     class Views
     {
 
-        public void ViewMenu(restaurantsContext context, Restaurant restaurant)
+        public static void ViewMenu(restaurantsContext context, string name)
         {
-            List<Dish> dishList = context.Dish.Where(p => p.AddressRes.Equals(restaurant.AddressRes)).ToList();
+            List<Dish> dishList = context.Dish.Where(p => p.AddressRes.Equals(name)).ToList();
 
             foreach (var dish in dishList)
             {
@@ -30,7 +30,7 @@ namespace Restaurant
             }
         }
 
-        public void ViewRestaurantsByType(restaurantsContext context, string type)
+        public static void ViewRestaurantsByType(restaurantsContext context, string type)
         {
             List<Restaurant> resList = context.Restaurant.Where(p => p.Type.Equals(type)).ToList();
 
