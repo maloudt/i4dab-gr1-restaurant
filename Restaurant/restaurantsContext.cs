@@ -26,7 +26,6 @@ namespace Restaurant
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=restaurants;Data Source=localhost");
             }
         }
@@ -43,7 +42,7 @@ namespace Restaurant
 
                 entity.Property(e => e.Category)
                     .HasColumnName("category")
-                    .HasMaxLength(1);
+                    .HasMaxLength(100);
 
                 entity.Property(e => e.DishDescription)
                     .HasColumnName("dish_description")
@@ -54,7 +53,8 @@ namespace Restaurant
                     .HasColumnName("dish_name")
                     .HasMaxLength(50);
 
-                entity.Property(e => e.Price).HasColumnName("price");
+                entity.Property(e => e.Price).HasColumnName("price")
+                    .IsRequired();
 
                 entity.HasOne(d => d.AddressResNavigation)
                     .WithMany(p => p.Dish)
@@ -117,7 +117,11 @@ namespace Restaurant
 
                 entity.Property(e => e.AddressRes)
                     .HasColumnName("address_res")
-                    .HasMaxLength(100);
+                    .HasMaxLength(100)
+                    .IsRequired();
+
+                entity.Property(e => e.DishId)
+                    .HasColumnName("Dish_Id");
 
                 entity.Property(e => e.ReviewText)
                     .HasColumnName("review_text")
@@ -127,7 +131,7 @@ namespace Restaurant
                 entity.Property(e => e.ReviewerName)
                     .HasColumnName("reviewer_name")
                     .HasMaxLength(50)
-                    .HasDefaultValueSql("('Annoymous')");
+                    .HasDefaultValueSql("('Anonymous')");
 
                 entity.Property(e => e.Stars).HasColumnName("stars");
 
@@ -140,6 +144,11 @@ namespace Restaurant
                     .HasForeignKey(d => d.AddressRes)
                     .OnDelete(DeleteBehavior.SetNull)
                     .HasConstraintName("FK__Review__address___6FE99F9F");
+
+                entity.HasOne(d => d.DishIdNavigation)
+                    .WithMany(p => p.Review)
+                    .HasForeignKey(d=>d.DishId)
+                    .HasConstraintName("FK_review_dish");
             });
 
             modelBuilder.Entity<TableRes>(entity =>

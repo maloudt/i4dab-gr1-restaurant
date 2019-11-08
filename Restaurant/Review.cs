@@ -6,6 +6,7 @@ namespace Restaurant
     public partial class Review
     {
         public int ReviewId { get; set; }
+        public int DishId { get; set; }
         public string ReviewerName { get; set; }
         public int Stars { get; set; }
         public string ReviewText { get; set; }
@@ -13,5 +14,6 @@ namespace Restaurant
         public string AddressRes { get; set; }
 
         public virtual Restaurant AddressResNavigation { get; set; }
+        public virtual Dish DishIdNavigation { get; set; }
     }
 }

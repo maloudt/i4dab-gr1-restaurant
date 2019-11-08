@@ -13,5 +13,6 @@ namespace Restaurant
         public string AddressRes { get; set; }
 
         public virtual Restaurant AddressResNavigation { get; set; }
+        public virtual ICollection<Review> Review { get; set; }
     }
 }
