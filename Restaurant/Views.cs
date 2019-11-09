@@ -18,15 +18,23 @@ namespace Restaurant
                 Console.WriteLine($"Dish: {dish.DishName}");
                 Console.WriteLine($"Price: {dish.Price}");
 
-                int totalRating = 0;
-                foreach (var review in reviewList)
+                if (reviewList.Count() != 0)
                 {
-                    totalRating += review.Stars;
+                    int totalRating = 0;
+                    foreach (var review in reviewList)
+                    {
+                        totalRating += review.Stars;
+                    }
+
+                    int avgRating = totalRating / reviewList.Count();
+
+                    Console.WriteLine($"Average rating: {avgRating}");
                 }
-
-                int avgRating = totalRating / reviewList.Count();
-
-                Console.WriteLine($"Average rating: {avgRating}");
+                else
+                {
+                    Console.WriteLine("Currently no reviews for this dish");
+                }
+                Console.WriteLine();
             }
         }
 
@@ -40,23 +48,31 @@ namespace Restaurant
 
                 List<Review> reviewList = restaurant.Review.ToList();
 
-                int totalRating = 0;
-                foreach (var review in reviewList)
+                if (reviewList.Count() != 0)
                 {
-                    totalRating += review.Stars;
-                }
-
-                int avgRating = totalRating / reviewList.Count();
-
-                Console.WriteLine($"Average rating: {avgRating}");
-
-                for (int i = 0; i < 4; i++)
-                {
-                    if (reviewList[i] != null)
+                    int totalRating = 0;
+                    foreach (var review in reviewList)
                     {
-                        Console.WriteLine(reviewList[i].ReviewText);
+                        totalRating += review.Stars;
+                    }
+
+                    int avgRating = totalRating / reviewList.Count();
+
+                    Console.WriteLine($"Average rating: {avgRating}");
+
+                    for (int i = 0; i < 4; i++)
+                    {
+                        if (reviewList[i] != null)
+                        {
+                            Console.WriteLine(reviewList[i].ReviewText);
+                        }
                     }
                 }
+                else
+                {
+                    Console.WriteLine("Currently no reviews");
+                }
+                
 
                 Console.WriteLine();
             }

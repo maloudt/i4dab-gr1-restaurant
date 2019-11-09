@@ -157,6 +157,10 @@ namespace Restaurant
 
             modelBuilder.Entity<TableRes>(entity =>
             {
+                entity.Property(e => e.TableId)
+                    .HasColumnName("table_id")
+                    .IsRequired();
+
                 entity.HasKey(e => e.TableNumber)
                     .HasName("PK__Table_re__21B232CF842EF4C1");
 
