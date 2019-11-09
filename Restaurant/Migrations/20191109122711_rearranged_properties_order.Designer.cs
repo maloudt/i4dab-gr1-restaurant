@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Restaurant;
 
 namespace Restaurant.Migrations
 {
     [DbContext(typeof(restaurantsContext))]
-    partial class restaurantsContextModelSnapshot : ModelSnapshot
+    [Migration("20191109122711_rearranged_properties_order")]
+    partial class rearranged_properties_order
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -188,8 +190,12 @@ namespace Restaurant.Migrations
                         .HasColumnName("chairs")
                         .HasColumnType("int");
 
+                    b.Property<int>("TableId")
+                        .HasColumnName("table_id")
+                        .HasColumnType("int");
+
                     b.HasKey("TableNumber")
-                        .HasName("PK_tablenumber");
+                        .HasName("PK__Table_re__21B232CF842EF4C1");
 
                     b.HasIndex("AddressRes");
 

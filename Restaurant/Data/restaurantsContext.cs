@@ -22,6 +22,7 @@ namespace Restaurant
         public virtual DbSet<TableRes> TableRes { get; set; }
         public virtual DbSet<Waiter> Waiter { get; set; }
 
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -36,25 +37,25 @@ namespace Restaurant
             {
                 entity.Property(e => e.DishId).HasColumnName("dish_id");
 
-                entity.Property(e => e.AddressRes)
-                    .HasColumnName("address_res")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.Category)
-                    .HasColumnName("category")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.DishDescription)
-                    .HasColumnName("dish_description")
-                    .HasMaxLength(255);
-
                 entity.Property(e => e.DishName)
                     .IsRequired()
                     .HasColumnName("dish_name")
                     .HasMaxLength(50);
 
+                entity.Property(e => e.DishDescription)
+                    .HasColumnName("dish_description")
+                    .HasMaxLength(255);
+
                 entity.Property(e => e.Price).HasColumnName("price")
                     .IsRequired();
+
+                entity.Property(e => e.Category)
+                    .HasColumnName("category")
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.AddressRes)
+                    .HasColumnName("address_res")
+                    .HasMaxLength(100);
 
                 entity.HasOne(d => d.AddressResNavigation)
                     .WithMany(p => p.Dish)
@@ -66,19 +67,19 @@ namespace Restaurant
             modelBuilder.Entity<Guest>(entity =>
             {
                 entity.Property(e => e.GuestId).HasColumnName("guest_id");
-
-                entity.Property(e => e.AddressRes)
-                    .HasColumnName("address_res")
-                    .HasMaxLength(100);
-
+                
                 entity.Property(e => e.NameBooker)
                     .IsRequired()
                     .HasColumnName("name_booker")
                     .HasMaxLength(50);
 
+                entity.Property(e => e.TableNumber).HasColumnName("table_number");
+
                 entity.Property(e => e.PartySize).HasColumnName("party_size");
 
-                entity.Property(e => e.TableNumber).HasColumnName("table_number");
+                entity.Property(e => e.AddressRes)
+                    .HasColumnName("address_res")
+                    .HasMaxLength(100);
 
                 entity.Property(e => e.Time)
                     .HasColumnName("time")
@@ -98,9 +99,6 @@ namespace Restaurant
 
             modelBuilder.Entity<Restaurant>(entity =>
             {
-                entity.HasKey(e => e.AddressRes)
-                    .HasName("PK__Restaura__5D92AE2BA9E4B256");
-
                 entity.Property(e => e.AddressRes)
                     .HasColumnName("address_res")
                     .HasMaxLength(100);
@@ -113,24 +111,15 @@ namespace Restaurant
                 entity.Property(e => e.Type)
                     .IsRequired()
                     .HasMaxLength(255);
+                
+                entity.HasKey(e => e.AddressRes)
+                    .HasName("PK__Restaura__5D92AE2BA9E4B256");
+
             });
 
             modelBuilder.Entity<Review>(entity =>
             {
                 entity.Property(e => e.ReviewId).HasColumnName("review_id");
-
-                entity.Property(e => e.AddressRes)
-                    .HasColumnName("address_res")
-                    .HasMaxLength(100)
-                    .IsRequired();
-
-                entity.Property(e => e.DishId)
-                    .HasColumnName("Dish_Id");
-
-                entity.Property(e => e.ReviewText)
-                    .HasColumnName("review_text")
-                    .HasMaxLength(255)
-                    .HasDefaultValueSql("(' ')");
 
                 entity.Property(e => e.ReviewerName)
                     .HasColumnName("reviewer_name")
@@ -139,9 +128,22 @@ namespace Restaurant
 
                 entity.Property(e => e.Stars).HasColumnName("stars");
 
+                entity.Property(e => e.ReviewText)
+                    .HasColumnName("review_text")
+                    .HasMaxLength(255)
+                    .HasDefaultValueSql("(' ')");
+
                 entity.Property(e => e.Time)
                     .HasColumnName("time")
                     .HasColumnType("datetime");
+
+                entity.Property(e => e.AddressRes)
+                    .HasColumnName("address_res")
+                    .HasMaxLength(100)
+                    .IsRequired();
+                
+                entity.Property(e => e.DishId)
+                    .HasColumnName("Dish_Id");
 
                 entity.HasOne(d => d.AddressResNavigation)
                     .WithMany(p => p.Review)
@@ -161,20 +163,21 @@ namespace Restaurant
                     .HasColumnName("table_id")
                     .IsRequired();
 
-                entity.HasKey(e => e.TableNumber)
-                    .HasName("PK__Table_re__21B232CF842EF4C1");
-
-                entity.ToTable("Table_res");
-
                 entity.Property(e => e.TableNumber)
                     .HasColumnName("table_number")
                     .ValueGeneratedNever();
+
+                entity.Property(e => e.Chairs).HasColumnName("chairs");
 
                 entity.Property(e => e.AddressRes)
                     .HasColumnName("address_res")
                     .HasMaxLength(100);
 
-                entity.Property(e => e.Chairs).HasColumnName("chairs");
+                entity.ToTable("Table_res");
+
+                entity.HasKey(e => e.TableNumber)
+                    .HasName("PK__Table_re__21B232CF842EF4C1");
+
 
                 entity.HasOne(d => d.AddressResNavigation)
                     .WithMany(p => p.TableRes)
@@ -187,13 +190,13 @@ namespace Restaurant
             {
                 entity.Property(e => e.WaiterId).HasColumnName("waiter_id");
 
-                entity.Property(e => e.AddressRes)
-                    .HasColumnName("address_res")
-                    .HasMaxLength(100);
+                entity.Property(e => e.TableNumber).HasColumnName("table_number");
 
                 entity.Property(e => e.Salary).HasColumnName("salary");
 
-                entity.Property(e => e.TableNumber).HasColumnName("table_number");
+                entity.Property(e => e.AddressRes)
+                    .HasColumnName("address_res")
+                    .HasMaxLength(100);
 
                 entity.HasOne(d => d.AddressResNavigation)
                     .WithMany(p => p.Waiter)

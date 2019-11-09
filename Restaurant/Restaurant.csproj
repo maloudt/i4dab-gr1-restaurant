@@ -8,6 +8,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20191108091159_Added_Review_dish_FK.cs" />
     <Compile Remove="Migrations\20191108091159_Added_Review_dish_FK.Designer.cs" />
+    <Compile Remove="Migrations\20191109130844_redid_table_number.cs" />
+    <Compile Remove="Migrations\20191109130844_redid_table_number.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

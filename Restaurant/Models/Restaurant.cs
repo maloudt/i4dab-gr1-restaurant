@@ -13,7 +13,7 @@ namespace Restaurant
             TableRes = new HashSet<TableRes>();
             Waiter = new HashSet<Waiter>();
         }
-
+         
         public string AddressRes { get; set; }
         public string NameRes { get; set; }
         public string Type { get; set; }

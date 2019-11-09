@@ -8,17 +8,17 @@ namespace Restaurant
     class Views
     {
 
-        public static void ViewMenu(restaurantsContext context, string name)
+        public static void ViewMenu(restaurantsContext context, string address)
         {
-            List<Dish> dishList = context.Dish.Where(p => p.AddressRes.Equals(name)).ToList();
-
-            foreach (var dish in dishList)
+            Console.WriteLine($"Viewing menu of {address}");
+            foreach (var dish in context.Dish.Where(p => p.AddressRes.Equals(address)).ToList())
             {
-                List<Review> reviewList = dish.Review.ToList();
                 Console.WriteLine($"Dish: {dish.DishName}");
+
                 Console.WriteLine($"Price: {dish.Price}");
 
-                if (reviewList.Count() != 0)
+                List<Review> reviewList = context.Review.Where(p => p.DishId.Equals(dish.DishId)).ToList();
+                if (reviewList.Any())
                 {
                     int totalRating = 0;
                     foreach (var review in reviewList)
@@ -40,15 +40,17 @@ namespace Restaurant
 
         public static void ViewRestaurantsByType(restaurantsContext context, string type)
         {
-            List<Restaurant> resList = context.Restaurant.Where(p => p.Type.Equals(type)).ToList();
+            Console.WriteLine($"Viewing all restaurants of type {type}");
 
-            foreach (var restaurant in resList)
+            foreach (var restaurant in context.Restaurant.Where(p => p.Type.Equals(type)).ToList())
             {
                 Console.WriteLine($"Name: {restaurant.NameRes}");
 
-                List<Review> reviewList = restaurant.Review.ToList();
+                List<Review> reviewList = context.Review
+                    .Where(p=>p.AddressRes.Equals(restaurant.AddressRes))
+                    .ToList();
 
-                if (reviewList.Count() != 0)
+                if (reviewList.Any())
                 {
                     int totalRating = 0;
                     foreach (var review in reviewList)
@@ -60,12 +62,9 @@ namespace Restaurant
 
                     Console.WriteLine($"Average rating: {avgRating}");
 
-                    for (int i = 0; i < 4; i++)
+                    for (int i = 0; i < 4 && i < reviewList.Count(); i++)
                     {
-                        if (reviewList[i] != null)
-                        {
-                            Console.WriteLine(reviewList[i].ReviewText);
-                        }
+                        Console.WriteLine(reviewList[i].ReviewText);
                     }
                 }
                 else
