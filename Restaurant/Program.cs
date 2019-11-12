@@ -19,6 +19,7 @@ namespace Restaurant
                 Console.WriteLine("View menu of restaurant: 2");
                 Console.WriteLine("View restaurants by type: 3");
                 Console.WriteLine("View dish reviews of restaurant: 4");
+                Console.WriteLine("Add new restaurant: 5");
 
                 ConsoleKeyInfo pressed = Console.ReadKey();
                 Console.WriteLine("");
