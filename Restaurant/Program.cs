@@ -39,6 +39,9 @@ namespace Restaurant
                     case ConsoleKey.D4:
                         Views.ViewDishReviews(db, ReqAddr());
                         break;
+                    case ConsoleKey.D5:
+                        DataAdder.AddRestaurant(db);
+                        break;
                     default:
                         break;
 
