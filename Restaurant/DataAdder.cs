@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 
 namespace Restaurant
 {
@@ -15,16 +16,22 @@ namespace Restaurant
             Console.WriteLine("Enter address:");
             string address = Console.ReadLine();
 
-            Restaurant newRestaurant = new Restaurant()
+            try
             {
-                AddressRes = address,
-                NameRes = name,
-                Type = type
-            };
-            db.Add(newRestaurant);
-            db.SaveChanges();
-
-            Console.WriteLine("Added to database!");
+                Restaurant newRestaurant = new Restaurant()
+                {
+                    AddressRes = address,
+                    NameRes = name,
+                    Type = type
+                };
+                db.Add(newRestaurant);
+                db.SaveChanges();
+                Console.WriteLine("Added to database!");
+            }
+            catch(InvalidOperationException e)
+            {
+                Console.WriteLine("Restaurant already exists in database");
+            }
         }
     }
 }
