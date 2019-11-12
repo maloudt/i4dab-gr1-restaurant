@@ -8,9 +8,11 @@ namespace Restaurant
         static void Main(string[] args)
         {
             restaurantsContext db = new restaurantsContext();
+
+            DataSeeder.SeedData();
             
-            Views.ViewMenu(db, "hejvej");
-            Views.ViewRestaurantsByType(db, "Fiskerestaurant");
+            Views.ViewMenu(db, "Lillegade 134, 8000 Aarhus C");
+            Views.ViewRestaurantsByType(db, "Bøfhus");
         }
     }
 }

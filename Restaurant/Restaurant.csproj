@@ -10,6 +10,16 @@
     <Compile Remove="Migrations\20191108091159_Added_Review_dish_FK.Designer.cs" />
     <Compile Remove="Migrations\20191109130844_redid_table_number.cs" />
     <Compile Remove="Migrations\20191109130844_redid_table_number.Designer.cs" />
+    <Compile Remove="Migrations\20191112144908_changed_table_pk_to_id.cs" />
+    <Compile Remove="Migrations\20191112144908_changed_table_pk_to_id.Designer.cs" />
+    <Compile Remove="Migrations\20191112145748_changed_table_pk_to_id.cs" />
+    <Compile Remove="Migrations\20191112145748_changed_table_pk_to_id.Designer.cs" />
+    <Compile Remove="Migrations\20191112150313_changed_table_pk_to_id.cs" />
+    <Compile Remove="Migrations\20191112150313_changed_table_pk_to_id.Designer.cs" />
+    <Compile Remove="Migrations\20191112151707_table-num_to_table-id.cs" />
+    <Compile Remove="Migrations\20191112151707_table-num_to_table-id.Designer.cs" />
+    <Compile Remove="Migrations\20191112152334_table-num_to_table-id.cs" />
+    <Compile Remove="Migrations\20191112152334_table-num_to_table-id.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
