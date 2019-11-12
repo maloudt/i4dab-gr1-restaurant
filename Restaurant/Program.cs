@@ -11,6 +11,7 @@ namespace Restaurant
             
             Views.ViewMenu(db, "hejvej");
             Views.ViewRestaurantsByType(db, "Fiskerestaurant");
+            Views.ViewDishReviews(db, "hejvej");
         }
     }
 }
