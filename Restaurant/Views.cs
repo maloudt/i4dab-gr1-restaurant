@@ -76,5 +76,53 @@ namespace Restaurant
                 Console.WriteLine();
             }
         }
+
+        public static void ViewDishReviews(restaurantsContext context, string addr)
+        {
+            Console.WriteLine($"Viewing dish reviews based on table for {addr}");
+
+            List<TableRes> tables = context.TableRes.Where(t => t.AddressRes.Equals(addr)).ToList();
+
+            List<Guest> guests = new List<Guest>();
+
+            foreach (var table in tables)
+            {
+                 guests.AddRange(context.Guest.Where(p => p.TableNumber.Equals(table.TableNumber)));
+            }
+            
+            List<Review> reviews = new List<Review>();
+
+            foreach (var guest in guests)
+            {
+                reviews.AddRange(context.Review.Where(r => r.ReviewerName.Equals(guest.NameBooker)));
+            }
+
+            foreach (var table in tables)
+            {
+                Console.WriteLine($"Guests at table {table.TableNumber}:");
+                foreach (var guest in guests)
+                {
+                    Console.WriteLine($"Reviews from {guest.NameBooker}:");
+                    foreach (var review in reviews)
+                    {
+                        Console.WriteLine($"{review.ReviewText}");
+                        Console.WriteLine($"---------- {review.Stars} stars ----------");
+                    }
+                }
+            }
+        }
+
+        public static void ViewAllRestaurants(restaurantsContext context)
+        {
+            Console.WriteLine("Viewing all restaurants:");
+
+            foreach (var restaurant in context.Restaurant)
+            {
+                Console.WriteLine($"Name: {restaurant.NameRes}");
+                Console.WriteLine($"Type: {restaurant.Type}");
+                Console.WriteLine($"Address: {restaurant.AddressRes}");
+                Console.WriteLine("");
+            }
+        }
     }
 }
