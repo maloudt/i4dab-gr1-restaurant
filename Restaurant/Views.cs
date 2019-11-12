@@ -111,5 +111,18 @@ namespace Restaurant
                 }
             }
         }
+
+        public static void ViewAllRestaurants(restaurantsContext context)
+        {
+            Console.WriteLine("Viewing all restaurants:");
+
+            foreach (var restaurant in context.Restaurant)
+            {
+                Console.WriteLine($"Name: {restaurant.NameRes}");
+                Console.WriteLine($"Type: {restaurant.Type}");
+                Console.WriteLine($"Address: {restaurant.AddressRes}");
+                Console.WriteLine("");
+            }
+        }
     }
 }

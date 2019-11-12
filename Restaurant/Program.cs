@@ -28,7 +28,7 @@ namespace Restaurant
                         Console.WriteLine("Seeding database...");
                         break;
                     case ConsoleKey.D1:
-                        Console.WriteLine("Not implemented, don't judge me.");
+                        Views.ViewAllRestaurants(db);
                         break;
                     case ConsoleKey.D2:
                         Views.ViewMenu(db, ReqAddr());
