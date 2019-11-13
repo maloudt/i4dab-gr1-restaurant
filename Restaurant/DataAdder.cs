@@ -114,5 +114,42 @@ namespace Restaurant
                 Console.WriteLine(e);
             }
         }
+
+        public static void AddWaiter(restaurantsContext db)
+        {
+            string addr = Utilities.ReqAddr();
+            try
+            {
+                var restaurant = db.Restaurant.Where(p => p.AddressRes.Equals(addr));
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine("No restaurant exists with that address (address is case sensitive)");
+            }
+
+            Console.WriteLine("Enter assigned table number:");
+            int tableNo = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter salary:");
+            int salary = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Adding dish...");
+
+            try
+            {
+                Waiter newWaiter = new Waiter()
+                {
+                    TableNumber = tableNo,
+                    Salary = salary,
+                    AddressRes = addr
+                };
+                db.Add(newWaiter);
+                db.SaveChanges();
+                Console.WriteLine("Added to database!");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Something went wrong:");
+                Console.WriteLine(e);
+            }
+        }
     }
 }

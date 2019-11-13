@@ -52,6 +52,12 @@ namespace Restaurant
                     case ConsoleKey.D6:
                         DataAdder.AddTable(db);
                         break;
+                    case ConsoleKey.D7:
+                        DataAdder.AddWaiter(db);
+                        break;
+                    case ConsoleKey.D8:
+                        DataAdder.AddWaiter(db);
+                        break;
                     default:
                         break;
 
