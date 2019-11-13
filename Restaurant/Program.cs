@@ -38,16 +38,19 @@ namespace Restaurant
                         Views.ViewAllRestaurants(db);
                         break;
                     case ConsoleKey.D2:
-                        Views.ViewMenu(db, ReqAddr());
+                        Views.ViewMenu(db, Utilities.ReqAddr());
                         break;
                     case ConsoleKey.D3:
-                        Views.ViewRestaurantsByType(db, ReqType());
+                        Views.ViewRestaurantsByType(db, Utilities.ReqType());
                         break;
                     case ConsoleKey.D4:
-                        Views.ViewDishReviews(db, ReqAddr());
+                        Views.ViewDishReviews(db, Utilities.ReqAddr());
                         break;
                     case ConsoleKey.D5:
                         DataAdder.AddRestaurant(db);
+                        break;
+                    case ConsoleKey.D6:
+                        DataAdder.AddTable(db);
                         break;
                     default:
                         break;
@@ -60,16 +63,5 @@ namespace Restaurant
 
         }
 
-        public static string ReqAddr()
-        {
-            Console.WriteLine("Please enter restaurant address:");
-            return Console.ReadLine();
-        }
-
-        public static string ReqType()
-        {
-            Console.WriteLine("Please enter restaurant type:");
-            return Console.ReadLine();
-        }
     }
 }

@@ -37,8 +37,7 @@ namespace Restaurant
 
         public static void AddDish(restaurantsContext db)
         {
-            Console.WriteLine("Enter address of restaurant:");
-            string addr = Console.ReadLine();
+            string addr = Utilities.ReqAddr();
             try
             {
                 var restaurant = db.Restaurant.Where(p => p.AddressRes.Equals(addr));
@@ -74,6 +73,44 @@ namespace Restaurant
             catch (Exception e)
             {
                 Console.WriteLine("Something went wrong:");
+                Console.WriteLine(e);
+            }
+        }
+
+        public static void AddTable(restaurantsContext db)
+        {
+            string addr = Utilities.ReqAddr();
+            try
+            {
+                var restaurant = db.Restaurant.Where(p => p.AddressRes.Equals(addr));
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine("No restaurant exists with that address (address is case sensitive)");
+            }
+
+            Console.WriteLine("Enter table number:");
+            int tableNo = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter number of chairs:");
+            int chairNo = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Adding table...");
+
+            try
+            {
+                TableRes newTable = new TableRes()
+                {
+                    TableNumber = tableNo,
+                    Chairs = chairNo,
+                    AddressRes = addr
+                };
+                db.Add(newTable);
+                db.SaveChanges();
+                Console.WriteLine("Added to database!");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Something went wrong");
                 Console.WriteLine(e);
             }
         }
