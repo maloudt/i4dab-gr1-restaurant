@@ -59,6 +59,7 @@ namespace Restaurant
                         DataAdder.AddWaiter(db);
                         break;
                     default:
+                        Console.WriteLine("Not implemented");
                         break;
 
                 }
