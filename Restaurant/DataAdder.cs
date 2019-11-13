@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 
@@ -31,6 +32,49 @@ namespace Restaurant
             catch(InvalidOperationException e)
             {
                 Console.WriteLine("Restaurant already exists in database");
+            }
+        }
+
+        public static void AddDish(restaurantsContext db)
+        {
+            Console.WriteLine("Enter address of restaurant:");
+            string addr = Console.ReadLine();
+            try
+            {
+                var restaurant = db.Restaurant.Where(p => p.AddressRes.Equals(addr));
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine("No restaurant exists with that address (address is case sensitive)");
+            }
+
+            Console.WriteLine("Enter name of dish:");
+            string dishName = Console.ReadLine();
+            Console.WriteLine("Enter dish description:");
+            string dishDesc = Console.ReadLine();
+            Console.WriteLine("Enter price of dish:");
+            int dishPrice = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter category of dish:");
+            string dishCat = Console.ReadLine();
+            Console.WriteLine("Adding dish...");
+
+            try
+            {
+                Dish newDish = new Dish()
+                {
+                    DishName = dishName,
+                    DishDescription = dishDesc,
+                    Price = dishPrice,
+                    Category = dishCat
+                    };
+                db.Add(newDish);
+                db.SaveChanges();
+                Console.WriteLine("Added to database!");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Something went wrong:");
+                Console.WriteLine(e);
             }
         }
     }

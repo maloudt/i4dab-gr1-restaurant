@@ -20,6 +20,12 @@ namespace Restaurant
                 Console.WriteLine("View restaurants by type: 3");
                 Console.WriteLine("View dish reviews of restaurant: 4");
                 Console.WriteLine("Add new restaurant: 5");
+                Console.WriteLine("Add new dish to restaurant: 6");
+                Console.WriteLine("Add table to restaurant: 7");
+                Console.WriteLine("Add waiter to restaurant: 8");
+                Console.WriteLine("Add review to restaurant or dish: 9");
+                Console.WriteLine("Add guest to restaurant: 0");
+
 
                 ConsoleKeyInfo pressed = Console.ReadKey();
                 Console.WriteLine("");

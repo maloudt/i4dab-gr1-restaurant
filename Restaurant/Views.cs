@@ -47,7 +47,8 @@ namespace Restaurant
                 Console.WriteLine($"Name: {restaurant.NameRes}");
 
                 List<Review> reviewList = context.Review
-                    .Where(p=>p.AddressRes.Equals(restaurant.AddressRes)) // + hvor dish = null
+                    .Where(p=>p.AddressRes.Equals(restaurant.AddressRes))
+                    .Where(p=>p.DishId.Equals(null))
                     .ToList();
 
                 if (reviewList.Any())
