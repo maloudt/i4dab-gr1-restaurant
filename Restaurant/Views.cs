@@ -10,10 +10,10 @@ namespace Restaurant
 
         public static void ViewMenu(restaurantsContext context, string address)
         {
-            Console.WriteLine($"Viewing menu of {address}");
+            Console.WriteLine($"\nViewing menu of {address}\n");
             foreach (var dish in context.Dish.Where(p => p.AddressRes.Equals(address)).ToList())
             {
-                Console.WriteLine($"Dish: {dish.DishName}");
+                Console.WriteLine($"Dish:  {dish.DishName}");
 
                 Console.WriteLine($"Price: {dish.Price}");
 
@@ -32,7 +32,7 @@ namespace Restaurant
                 }
                 else
                 {
-                    Console.WriteLine("Currently no reviews for this dish");
+                    Console.WriteLine("There are currently no reviews for this dish");
                 }
                 Console.WriteLine();
             }
@@ -40,7 +40,7 @@ namespace Restaurant
 
         public static void ViewRestaurantsByType(restaurantsContext context, string type)
         {
-            Console.WriteLine($"Viewing all restaurants of type {type}");
+            Console.WriteLine($"\nViewing all restaurants of type {type}\n");
 
             foreach (var restaurant in context.Restaurant.Where(p => p.Type.Equals(type)).ToList())
             {
@@ -70,7 +70,7 @@ namespace Restaurant
                 }
                 else
                 {
-                    Console.WriteLine("Currently no reviews");
+                    Console.WriteLine("There are currently no reviews for this restaurant");
                 }
                 
 
@@ -80,7 +80,7 @@ namespace Restaurant
 
         public static void ViewDishReviews(restaurantsContext context, string addr)
         {
-            Console.WriteLine($"Viewing dish reviews based on table for {addr}");
+            Console.WriteLine($"\nViewing dish reviews based on table for {addr}\n");
 
             List<TableRes> tables = context.TableRes.Where(t => t.AddressRes.Equals(addr)).ToList();
 
@@ -115,12 +115,12 @@ namespace Restaurant
 
         public static void ViewAllRestaurants(restaurantsContext context)
         {
-            Console.WriteLine("Viewing all restaurants:");
+            Console.WriteLine("\nViewing all restaurants:\n");
 
             foreach (var restaurant in context.Restaurant)
             {
-                Console.WriteLine($"Name: {restaurant.NameRes}");
-                Console.WriteLine($"Type: {restaurant.Type}");
+                Console.WriteLine($"Name:    {restaurant.NameRes}");
+                Console.WriteLine($"Type:    {restaurant.Type}");
                 Console.WriteLine($"Address: {restaurant.AddressRes}");
                 Console.WriteLine("");
             }

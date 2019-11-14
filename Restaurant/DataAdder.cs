@@ -32,7 +32,9 @@ namespace Restaurant
             catch(InvalidOperationException e)
             {
                 Console.WriteLine("Restaurant already exists in database");
+                Console.WriteLine(e);
             }
+            Console.WriteLine("-----------------------------");
         }
 
         public static void AddDish(restaurantsContext db)
@@ -75,6 +77,7 @@ namespace Restaurant
                 Console.WriteLine("Something went wrong:");
                 Console.WriteLine(e);
             }
+            Console.WriteLine("-----------------------------");
         }
 
         public static void AddTable(restaurantsContext db)
@@ -113,6 +116,7 @@ namespace Restaurant
                 Console.WriteLine("Something went wrong");
                 Console.WriteLine(e);
             }
+            Console.WriteLine("-----------------------------");
         }
 
         public static void AddWaiter(restaurantsContext db)
@@ -150,6 +154,142 @@ namespace Restaurant
                 Console.WriteLine("Something went wrong:");
                 Console.WriteLine(e);
             }
+            Console.WriteLine("-----------------------------");
+        }
+
+        public static void AddReview(restaurantsContext db)
+        {
+            string addr = Utilities.ReqAddr();
+            try
+            {
+                var restaurant = db.Restaurant.Where(p => p.AddressRes.Equals(addr));
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine("No restaurant exists with that address (address is case sensitive)");
+            }
+
+            Console.WriteLine("Enter reviewer name:");
+            string revName = Console.ReadLine();
+            Console.WriteLine("Enter amount of stars:");
+            int stars = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter review text:");
+            string reviewText = Console.ReadLine();
+
+            Console.WriteLine("Adding review...");
+
+            try
+            {
+                Review newReview = new Review()
+                {
+                    ReviewerName = revName,
+                    DishId = null,
+                    Stars = stars,
+                    ReviewText = reviewText,
+                    Time = DateTime.Now,
+                    AddressRes = addr
+                };
+                db.Add(newReview);
+                db.SaveChanges();
+                Console.WriteLine("Added to database!");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Something went wrong:");
+                Console.WriteLine(e);
+            }
+            Console.WriteLine("-----------------------------");
+        }
+
+        public static void AddReviewDish(restaurantsContext db)
+        {
+            string addr = Utilities.ReqAddr();
+            try
+            {
+                var restaurant = db.Restaurant.Where(p => p.AddressRes.Equals(addr));
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine("No restaurant exists with that address (address is case sensitive)");
+            }
+
+            Console.WriteLine("Enter reviewer name:");
+            string DishRevName = Console.ReadLine();
+            Console.WriteLine("Enter dish id:");
+            int dishID = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter amount of stars:");
+            int starsDish = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter review text:");
+            string dishReviewText = Console.ReadLine();
+
+            Console.WriteLine("Adding review...");
+
+            try
+            {
+                Review newReview = new Review()
+                {
+                    DishId = dishID,
+                    ReviewerName = dishReviewText,
+                    Stars = starsDish,
+                    ReviewText = dishReviewText,
+                    Time = DateTime.Now,
+                    AddressRes = addr
+                };
+                db.Add(newReview);
+                db.SaveChanges();
+                Console.WriteLine("Added to database!");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Something went wrong:");
+                Console.WriteLine(e);
+            }
+            Console.WriteLine("-----------------------------");
+        }
+
+
+        public static void AddGuest(restaurantsContext db)
+        {
+            string addr = Utilities.ReqAddr();
+            try
+            {
+                var restaurant = db.Restaurant.Where(p => p.AddressRes.Equals(addr));
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine("No restaurant exists with that address (address is case sensitive)");
+            }
+
+            Console.WriteLine("Enter the name of the reservation booker:");
+            string booker = Console.ReadLine();
+            Console.WriteLine("Enter how many people are in the party:");
+            int partySize = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the time of the reservation (format 'yyyy-mm-dd hh:ss'):");
+            DateTime time = Convert.ToDateTime(Console.ReadLine());
+            Console.WriteLine("Enter assigned table number:");
+            int tableNo = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Adding reservation...");
+
+            try
+            {
+                Guest newGuest = new Guest()
+                {
+                    NameBooker = booker,
+                    TableNumber = tableNo,
+                    PartySize = partySize,
+                    Time = time,
+                    AddressRes = addr
+                };
+                db.Add(newGuest);
+                db.SaveChanges();
+                Console.WriteLine("Added to database!");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Something went wrong:");
+                Console.WriteLine(e);
+            }
+            Console.WriteLine("-----------------------------");
         }
 
     }
