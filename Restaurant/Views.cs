@@ -97,7 +97,7 @@ namespace Restaurant
             {
                 reviews.AddRange(context.Review.Where(r => r.ReviewerName.Equals(guest.NameBooker)));
             }
-
+            
             foreach (var table in tables)
             {
                 Console.WriteLine($"Guests at table {table.TableNumber}:");
@@ -105,14 +105,18 @@ namespace Restaurant
                 {
                     if (guest.TableNumber == table.TableNumber)
                     {
+                        
                         Console.WriteLine($"Reviews from {guest.NameBooker}:");
                         foreach (var review in reviews)
                         {
-                            Console.WriteLine($"{review.ReviewText}");
-                            Console.WriteLine($"---------- {review.Stars} stars ----------");
+                            if (review.ReviewerName == guest.NameBooker && review.DishId != null)
+                            {
+                                var dishName = context.Dish.Find(review.DishId).DishName;
+                                Console.WriteLine($"Dish: {dishName}   Stars: {review.Stars}   Review: {review.ReviewText}");
+                            }
                         }
+                        Console.WriteLine("");
                     }
-
                 }
             }
         }
