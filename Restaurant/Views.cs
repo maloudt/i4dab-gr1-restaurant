@@ -103,12 +103,16 @@ namespace Restaurant
                 Console.WriteLine($"Guests at table {table.TableNumber}:");
                 foreach (var guest in guests)
                 {
-                    Console.WriteLine($"Reviews from {guest.NameBooker}:");
-                    foreach (var review in reviews)
+                    if (guest.TableNumber == table.TableNumber)
                     {
-                        Console.WriteLine($"{review.ReviewText}");
-                        Console.WriteLine($"---------- {review.Stars} stars ----------");
+                        Console.WriteLine($"Reviews from {guest.NameBooker}:");
+                        foreach (var review in reviews)
+                        {
+                            Console.WriteLine($"{review.ReviewText}");
+                            Console.WriteLine($"---------- {review.Stars} stars ----------");
+                        }
                     }
+
                 }
             }
         }
