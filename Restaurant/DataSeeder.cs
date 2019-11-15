@@ -275,35 +275,244 @@ namespace Restaurant
             };
             db.Add(gaest5);
 
-            //************INSERT REVIEWS**************
+
+            //************INSERT RESTAURANT REVIEWS**************
             var review = db.Review;
 
             // Lillegade *******************************
-            // Rosenkrantzgade *************************
-            // Fiskehusvej *****************************
+            var review1 = new Review()
+            {
+                DishId = null,
+                ReviewerName = "Carsten",
+                Stars = 5,
+                ReviewText = "Fin estaurant",
+                Time = DateTime.Now,
+                AddressRes = "Lillegade"
+            };
+            db.Add(review1);
 
-            var anmeldelse1 = new Review()
+            var review2 = new Review()
+            {
+                DishId = null,
+                ReviewerName = "Frederik",
+                Stars = 3,
+                ReviewText = "Kunne vaere bedre",
+                Time = DateTime.Now,
+                AddressRes = "Lillegade"
+            };
+            db.Add(review2);
+
+            var review3 = new Review()
+            {
+                DishId = null,
+                ReviewerName = "Peter",
+                Stars = 1,
+                ReviewText = "Daarlig service",
+                Time = DateTime.Now,
+                AddressRes = "Lillegade"
+            };
+            db.Add(review3);
+
+            var review4 = new Review()
+            {
+                DishId = null,
+                ReviewerName = "Suzanne",
+                Stars = 4,
+                ReviewText = "God mad",
+                Time = DateTime.Now,
+                AddressRes = "Lillegade"
+            };
+            db.Add(review4);
+
+            var review5 = new Review()
+            {
+                DishId = null,
+                ReviewerName = "Jens",
+                Stars = 4,
+                ReviewText = "Fint",
+                Time = DateTime.Now,
+                AddressRes = "Lillegade"
+            };
+            db.Add(review5);
+
+            // Rosenkrantzgade *************************
+            var review6 = new Review()
+            {
+                DishId = null,
+                ReviewerName = "Bo",
+                Stars = 3,
+                ReviewText = "Fint",
+                Time = DateTime.Now,
+                AddressRes = "Rosenkrantzgade"
+            };
+            db.Add(review6);
+
+            // Fiskehusvej *****************************
+            var review7 = new Review()
+            {
+                DishId = null,
+                ReviewerName = "Franz",
+                Stars = 5,
+                ReviewText = "God fisk",
+                Time = DateTime.Now,
+                AddressRes = "Fiskehusvej"
+            };
+            db.Add(review7);
+
+
+
+
+            //************INSERT DISH REVIEWS**************
+            // Lillegade dish 1 ***************************
+            var dishReview1 = new Review()
             {
                 DishId = 1,
                 ReviewerName = "Carsten",
                 Stars = 5,
                 ReviewText = "Super god bof!",
-                Time = new DateTime(2019, 11, 10, 18, 00, 00),
+                Time = DateTime.Now,
                 AddressRes = "Lillegade"
             };
-            db.Add(anmeldelse1);
+            db.Add(dishReview1);
 
-            var anmeldelse2 = new Review()
+            var dishReview2 = new Review()
             {
                 DishId = 1,
                 ReviewerName = "Frederik",
                 Stars = 3,
                 ReviewText = "Kunne vaere bedre",
-                Time = new DateTime(2019, 09, 16, 18, 00, 00),
+                Time = DateTime.Now,
                 AddressRes = "Lillegade"
             };
-            db.Add(anmeldelse2);
+            db.Add(dishReview2);
 
+            var dishReview3 = new Review()
+            {
+                DishId = 1,
+                ReviewerName = "Lars",
+                Stars = 3,
+                ReviewText = "OK",
+                Time = DateTime.Now,
+                AddressRes = "Lillegade"
+            };
+            db.Add(dishReview3);
+
+            // Lillegade dish 2 ***************************
+            var dishReview4 = new Review()
+            {
+                DishId = 2,
+                ReviewerName = "Mette",
+                Stars = 5,
+                ReviewText = "Yummy!",
+                Time = DateTime.Now,
+                AddressRes = "Lillegade"
+            };
+            db.Add(dishReview4);
+
+            var dishReview5 = new Review()
+            {
+                DishId = 2,
+                ReviewerName = "Abraham",
+                Stars = 3,
+                ReviewText = "Fin bof",
+                Time = DateTime.Now,
+                AddressRes = "Lillegade"
+            };
+            db.Add(dishReview5);
+
+            // Lillegade dish 3 ***************************
+            var dishReview13 = new Review()
+            {
+                DishId = 3,
+                ReviewerName = "Sandra",
+                Stars = 3,
+                ReviewText = "Meget lille bof",
+                Time = DateTime.Now,
+                AddressRes = "Lillegade"
+            };
+            db.Add(dishReview13);
+
+            // Rosenkrantzgade dish 1 *********************
+            var dishReview6 = new Review()
+            {
+                DishId = 2,
+                ReviewerName = "Karl",
+                Stars = 5,
+                ReviewText = "Altid godt",
+                Time = DateTime.Now,
+                AddressRes = "Rosenkrantzgade"
+            };
+            db.Add(dishReview6);
+
+            // Rosenkrantzgade dish 2 *********************
+            var dishReview7 = new Review()
+            {
+                DishId = 2,
+                ReviewerName = "Karl",
+                Stars = 5,
+                ReviewText = "Altid godt",
+                Time = DateTime.Now,
+                AddressRes = "Rosenkrantzgade"
+            };
+            db.Add(dishReview7);
+
+            var dishReview8 = new Review()
+            {
+                DishId = 2,
+                ReviewerName = "Preben",
+                Stars = 4,
+                ReviewText = "Godt",
+                Time = DateTime.Now,
+                AddressRes = "Rosenkrantzgade"
+            };
+            db.Add(dishReview8);
+
+            // Rosenkrantzgade dish 3 *********************
+            var dishReview9 = new Review()
+            {
+                DishId = 3,
+                ReviewerName = "Tuomas",
+                Stars = 5,
+                ReviewText = "Yas",
+                Time = DateTime.Now,
+                AddressRes = "Rosenkrantzgade"
+            };
+            db.Add(dishReview9);
+
+            // Fiskehusvej dish 1 *************************
+            var dishReview10 = new Review()
+            {
+                DishId = 2,
+                ReviewerName = "Brendan",
+                Stars = 5,
+                ReviewText = "Altid godt",
+                Time = DateTime.Now,
+                AddressRes = "Fiskehusvej"
+            };
+            db.Add(dishReview10);
+
+            var dishReview11 = new Review()
+            {
+                DishId = 1,
+                ReviewerName = "Sara",
+                Stars = 3,
+                ReviewText = "OK fisk",
+                Time = DateTime.Now,
+                AddressRes = "Fiskehusvej"
+            };
+            db.Add(dishReview11);
+
+            // Fiskehusvej dish 2 *************************
+            var dishReview12 = new Review()
+            {
+                DishId = 2,
+                ReviewerName = "Finn",
+                Stars = 4,
+                ReviewText = "Mhmm",
+                Time = DateTime.Now,
+                AddressRes = "Fiskehusvej"
+            };
+            db.Add(dishReview12);
 
 
             db.SaveChanges();
