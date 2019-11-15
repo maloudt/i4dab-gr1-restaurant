@@ -11,6 +11,8 @@ namespace Restaurant
             Console.WriteLine("Welcome to the restaurants database!");
             Console.WriteLine("Please enter a command:");
             Console.WriteLine("-----------------------------------");
+            Console.WriteLine("s | Seed database");
+            Console.WriteLine("d | Clear database");
             Console.WriteLine("s | Seed database (add dummy data)");
             Console.WriteLine("-----------------------------------");
             Console.WriteLine("1 | View list of restaurants");

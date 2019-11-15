@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace Restaurant
 {
@@ -44,7 +45,7 @@ namespace Restaurant
             {
                 var restaurant = db.Restaurant.Where(p => p.AddressRes.Equals(addr));
             }
-            catch (ArgumentNullException e)
+            catch (ArgumentNullException)
             {
                 Console.WriteLine("No restaurant exists with that address (address is case sensitive)");
             }
@@ -87,7 +88,7 @@ namespace Restaurant
             {
                 var restaurant = db.Restaurant.Where(p => p.AddressRes.Equals(addr));
             }
-            catch (ArgumentNullException e)
+            catch (ArgumentNullException)
             {
                 Console.WriteLine("No restaurant exists with that address (address is case sensitive)");
             }
@@ -126,7 +127,7 @@ namespace Restaurant
             {
                 var restaurant = db.Restaurant.Where(p => p.AddressRes.Equals(addr));
             }
-            catch (ArgumentNullException e)
+            catch (ArgumentNullException)
             {
                 Console.WriteLine("No restaurant exists with that address (address is case sensitive)");
             }
@@ -164,7 +165,7 @@ namespace Restaurant
             {
                 var restaurant = db.Restaurant.Where(p => p.AddressRes.Equals(addr));
             }
-            catch (ArgumentNullException e)
+            catch (ArgumentNullException)
             {
                 Console.WriteLine("No restaurant exists with that address (address is case sensitive)");
             }
@@ -208,7 +209,7 @@ namespace Restaurant
             {
                 var restaurant = db.Restaurant.Where(p => p.AddressRes.Equals(addr));
             }
-            catch (ArgumentNullException e)
+            catch (ArgumentNullException)
             {
                 Console.WriteLine("No restaurant exists with that address (address is case sensitive)");
             }
@@ -255,7 +256,7 @@ namespace Restaurant
             {
                 var restaurant = db.Restaurant.Where(p => p.AddressRes.Equals(addr));
             }
-            catch (ArgumentNullException e)
+            catch (ArgumentNullException)
             {
                 Console.WriteLine("No restaurant exists with that address (address is case sensitive)");
             }
@@ -290,6 +291,17 @@ namespace Restaurant
                 Console.WriteLine(e);
             }
             Console.WriteLine("-----------------------------");
+        }
+
+        public static void DeleteAll(restaurantsContext db)
+        {
+            db.Review.RemoveRange(db.Review.ToList());
+            db.Guest.RemoveRange(db.Guest.ToList());
+            db.Waiter.RemoveRange(db.Waiter.ToList());
+            db.TableRes.RemoveRange(db.TableRes.ToList());
+            db.Dish.RemoveRange(db.Dish.ToList());
+            db.Restaurant.RemoveRange(db.Restaurant.ToList());
+            db.SaveChanges();
         }
 
     }

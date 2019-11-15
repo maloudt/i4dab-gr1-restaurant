@@ -70,6 +70,9 @@ namespace Restaurant
                     case ConsoleKey.G:
                         DataAdder.AddGuest(db);
                         break;
+                    case ConsoleKey.D:
+                        DataAdder.DeleteAll(db);
+                        break;
                     default:
                         Console.WriteLine("Not implemented");
                         break;

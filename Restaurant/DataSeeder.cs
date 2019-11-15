@@ -36,6 +36,8 @@ namespace Restaurant
             };
             db.Add(fiskens);
 
+            db.SaveChanges();
+
 
             //************INSERT DISHES*****************
             var dish = db.Dish;
