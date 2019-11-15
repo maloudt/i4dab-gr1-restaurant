@@ -378,7 +378,7 @@ namespace Restaurant
             var dishReview2 = new Review()
             {
                 DishId = 1,
-                ReviewerName = "Frederik",
+                ReviewerName = "Lillian",
                 Stars = 3,
                 ReviewText = "Kunne vaere bedre",
                 Time = DateTime.Now,
