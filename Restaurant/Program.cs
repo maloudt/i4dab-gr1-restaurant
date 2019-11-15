@@ -23,8 +23,9 @@ namespace Restaurant
                         Menu.PrintMenu();
                         break;
                     case ConsoleKey.S:
+                        Console.Write("Seeding database... "); 
                         DataSeeder.SeedData();
-                        Console.WriteLine("Seeding database...");
+                        Console.WriteLine("Done!");
                         break;
                     case ConsoleKey.D1:
                     case ConsoleKey.NumPad1:
