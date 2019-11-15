@@ -293,16 +293,5 @@ namespace Restaurant
             Console.WriteLine("-----------------------------");
         }
 
-        public static void DeleteAll(restaurantsContext db)
-        {
-            db.Review.RemoveRange(db.Review.ToList());
-            db.Guest.RemoveRange(db.Guest.ToList());
-            db.Waiter.RemoveRange(db.Waiter.ToList());
-            db.TableRes.RemoveRange(db.TableRes.ToList());
-            db.Dish.RemoveRange(db.Dish.ToList());
-            db.Restaurant.RemoveRange(db.Restaurant.ToList());
-            db.SaveChanges();
-        }
-
     }
 }
