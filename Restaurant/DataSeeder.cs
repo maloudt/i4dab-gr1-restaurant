@@ -285,7 +285,7 @@ namespace Restaurant
                 DishId = null,
                 ReviewerName = "Carsten",
                 Stars = 5,
-                ReviewText = "Fin estaurant",
+                ReviewText = "Fin restaurant",
                 Time = DateTime.Now,
                 AddressRes = "Lillegade"
             };
@@ -435,7 +435,7 @@ namespace Restaurant
             // Rosenkrantzgade dish 1 *********************
             var dishReview6 = new Review()
             {
-                DishId = 2,
+                DishId = 4,
                 ReviewerName = "Karl",
                 Stars = 5,
                 ReviewText = "Altid godt",
@@ -447,7 +447,7 @@ namespace Restaurant
             // Rosenkrantzgade dish 2 *********************
             var dishReview7 = new Review()
             {
-                DishId = 2,
+                DishId = 5,
                 ReviewerName = "Karl",
                 Stars = 5,
                 ReviewText = "Altid godt",
@@ -458,7 +458,7 @@ namespace Restaurant
 
             var dishReview8 = new Review()
             {
-                DishId = 2,
+                DishId = 5,
                 ReviewerName = "Preben",
                 Stars = 4,
                 ReviewText = "Godt",
@@ -470,7 +470,7 @@ namespace Restaurant
             // Rosenkrantzgade dish 3 *********************
             var dishReview9 = new Review()
             {
-                DishId = 3,
+                DishId = 6,
                 ReviewerName = "Tuomas",
                 Stars = 5,
                 ReviewText = "Yas",
@@ -482,7 +482,7 @@ namespace Restaurant
             // Fiskehusvej dish 1 *************************
             var dishReview10 = new Review()
             {
-                DishId = 2,
+                DishId = 7,
                 ReviewerName = "Brendan",
                 Stars = 5,
                 ReviewText = "Altid godt",
@@ -493,7 +493,7 @@ namespace Restaurant
 
             var dishReview11 = new Review()
             {
-                DishId = 1,
+                DishId = 7,
                 ReviewerName = "Sara",
                 Stars = 3,
                 ReviewText = "OK fisk",
@@ -505,7 +505,7 @@ namespace Restaurant
             // Fiskehusvej dish 2 *************************
             var dishReview12 = new Review()
             {
-                DishId = 2,
+                DishId = 8,
                 ReviewerName = "Finn",
                 Stars = 4,
                 ReviewText = "Mhmm",

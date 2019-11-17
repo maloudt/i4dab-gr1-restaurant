@@ -33,7 +33,7 @@ namespace Restaurant
             catch(InvalidOperationException e)
             {
                 Console.WriteLine("Restaurant already exists in database");
-                Console.WriteLine(e);
+                //Console.WriteLine(e);
             }
             Console.WriteLine("-----------------------------");
         }
@@ -76,7 +76,7 @@ namespace Restaurant
             catch (Exception e)
             {
                 Console.WriteLine("Something went wrong:");
-                Console.WriteLine(e);
+                //Console.WriteLine(e);
             }
             Console.WriteLine("-----------------------------");
         }
@@ -115,7 +115,7 @@ namespace Restaurant
             catch (Exception e)
             {
                 Console.WriteLine("Something went wrong");
-                Console.WriteLine(e);
+                //Console.WriteLine(e);
             }
             Console.WriteLine("-----------------------------");
         }
@@ -153,7 +153,7 @@ namespace Restaurant
             catch (Exception e)
             {
                 Console.WriteLine("Something went wrong:");
-                Console.WriteLine(e);
+                //Console.WriteLine(e);
             }
             Console.WriteLine("-----------------------------");
         }
@@ -197,7 +197,7 @@ namespace Restaurant
             catch (Exception e)
             {
                 Console.WriteLine("Something went wrong:");
-                Console.WriteLine(e);
+                //Console.WriteLine(e);
             }
             Console.WriteLine("-----------------------------");
         }
@@ -243,7 +243,7 @@ namespace Restaurant
             catch (Exception e)
             {
                 Console.WriteLine("Something went wrong:");
-                Console.WriteLine(e);
+                //Console.WriteLine(e);
             }
             Console.WriteLine("-----------------------------");
         }
@@ -288,7 +288,7 @@ namespace Restaurant
             catch (Exception e)
             {
                 Console.WriteLine("Something went wrong:");
-                Console.WriteLine(e);
+                //Console.WriteLine(e);
             }
             Console.WriteLine("-----------------------------");
         }
